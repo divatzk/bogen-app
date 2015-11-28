@@ -1,0 +1,33 @@
+<header class="position">
+  <div class="text-center">
+    <a ng-click="back()" class="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <h4>Gespeicherte Ergebnisse</h4>
+  </div>
+</header>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" data-toggle="collapse" style="padding: 10px; margin-top: 40px;">
+  <div class="panel panel-default" ng-repeat="result in games">
+    <div class="panel-heading" role="tab" data-toggle="collapse" data-parent="#accordion" data-target="#{{'collapse'+$index}}">
+        <span class="panel-title">
+          {{formateDate(result.date)}}, <span ng-repeat="data in result.data">{{data.name}}<span ng-show="!$last">,</span></span>
+        </span>
+    </div>
+    <div class="panel-collapse collapse" role="tabpanel" id="{{'collapse'+$index}}">
+      <div class="panel-body">
+        <div>
+          <span ng-show="result.type == '/Game'">3 Pfeil</span><span ng-show="result.type == '/Game-Hunter-2'">2 Pfeil</span><span ng-show="result.type == '/Game-Hunter-1'">1 Pfeil</span>,
+          <span>{{result.data[0].targets.length}} Ziele</span>
+        </div>
+        <table class="" cellpadding="0" cellspacing="0">
+          <tr class="" ng-repeat="data in result.data">
+            <td class="">{{data.name}}: </td>
+            <td>&nbsp;<b>{{sum(data.targets)}}</b></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

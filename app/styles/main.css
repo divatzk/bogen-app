@@ -1,0 +1,164 @@
+.img-responsive.max-width {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container.max-width {
+  max-width: 400px;
+}
+.inline-block {
+  display: inline-block;
+}
+html,
+body {
+  height: 100%;
+}
+.full-height {
+  height: 100%;
+}
+.list-unstyled h4 {
+  color: #fff;
+}
+.progress {
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  margin: 0;
+}
+.grey {
+  color: #777;
+}
+.bg-image {
+  background: url(../images/bg.jpg) no-repeat center fixed;
+  background-size: cover;
+}
+.chart-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.fill {
+  height: 100%;
+  width: 100%;
+}
+.fill.half {
+  height: 50%;
+}
+.fill.game {
+  transition: opacity .8s;
+}
+.fill.game.move {
+  transition: all 1s;
+}
+.fill.game.move.right {
+  opacity: 0;
+  transform: translateX(-300px);
+}
+.fill.game.move.left {
+  opacity: 0;
+  transform: translateX(300px);
+}
+.fill td {
+  vertical-align: middle;
+}
+.fill.game tbody td {
+  width: 33.33333333%;
+}
+.fill.game tbody td.first {
+  width: 30px;
+  border-left: 0;
+}
+.fill.game tbody td.active {
+  background: #729FAE;
+  color: #fff;
+  transition: all 0.5s;
+  box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+  outline: 3px solid red;
+  position: relative;
+  z-index: 1;
+}
+.light-bg {
+  background: #f8f8f8;
+}
+.table-wrapper {
+  padding: 39px 0;
+  height: 100%;
+}
+.trenner {
+  height: 30px;
+  background: #84A6B2;
+  color: #fff;
+}
+.panel-title {
+  font-size: 14px;
+}
+footer,
+header {
+  position: fixed;
+  background: #3E6E7E;
+  left: 0;
+  right: 0;
+}
+footer a,
+header a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+}
+footer a:hover,
+header a:hover {
+  color: #fff;
+}
+footer h4,
+header h4 {
+  color: #fff;
+}
+footer {
+  bottom: 0;
+}
+footer .glyphicon-info-sign:before {
+  position: absolute;
+  font-size: 24px;
+  margin-top: -16px;
+  margin-left: -15px;
+}
+footer h4 {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+footer a {
+  display: inline-block;
+}
+header {
+  top: 0;
+}
+header.position-static {
+  position: static;
+}
+header h4 {
+  padding: 10px 40px;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+header .prev {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+header .next {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+header:not(.position-static) + .result-table {
+  margin-top: 39px;
+}
+.result-table td {
+  width: 50%;
+  padding: 8px 2px !important;
+}

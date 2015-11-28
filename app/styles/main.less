@@ -1,0 +1,181 @@
+.img-responsive.max-width{
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.container.max-width{
+  max-width: 400px;
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+
+html, body{
+  height: 100%;
+}
+
+.full-height{
+  height: 100%;
+}
+
+.list-unstyled h4{
+  color: #fff;
+}
+
+.progress{
+  width: 0%;
+  height: 2px;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  margin: 0;
+}
+
+.grey{
+  color: #777;
+}
+
+.bg-image{
+  background: url(../images/bg.jpg) no-repeat center fixed;
+  background-size: cover;
+}
+
+.chart-container{
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.fill{
+  height: 100%;
+  width: 100%;
+  &.half{
+    height: 50%;
+  }
+  &.game{
+    transition: opacity .8s;
+    &.move{
+      transition: all 1s;
+      &.right{
+        opacity: 0;
+        transform: translateX(-300px);
+      }
+      &.left{
+        opacity: 0;
+        transform: translateX(300px);
+      }
+    }
+  }
+
+  td{
+    vertical-align: middle;
+  }
+
+  &.game tbody td{
+    width: 100/3%;
+    &.first{
+      width: 30px;
+      border-left: 0;
+    }
+    &.active{
+      background: #729FAE;
+      color: #fff;
+      transition: all 0.5s;
+      box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+      outline: 3px solid red;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.light-bg{
+  background: #f8f8f8;
+}
+
+.table-wrapper{
+  padding: 39px 0;
+  height: 100%;
+}
+.trenner{
+  height: 30px;
+  background: #84A6B2;
+  color: #fff;
+}
+
+.panel-title{
+  font-size: 14px;
+}
+
+footer, header{
+  position: fixed;
+  background: #3E6E7E;
+  left: 0;
+  right: 0;
+  a{
+    display: block;
+    padding: 10px;
+    color: #fff;
+    &:hover{
+      color: #fff;
+    }
+  }
+  h4{
+    color: #fff;
+  }
+}
+
+footer{
+  bottom: 0;
+  .glyphicon-info-sign:before{
+    position: absolute;
+    font-size: 24px;
+    margin-top: -16px;
+    margin-left: -15px;
+  }
+  h4{
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    left: 3px;
+  }
+  a{
+    display: inline-block;
+  }
+}
+header{
+  top: 0;
+  &.position-static{
+    position: static;
+  }
+  h4{
+    padding: 10px 40px;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .prev{
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .next{
+    position:  absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+header:not(.position-static) + .result-table{
+  margin-top: 39px;
+}
+
+.result-table{
+  td{
+    width: 50%;
+    padding: 8px 2px !important;
+  }
+}

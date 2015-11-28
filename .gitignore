@@ -1,0 +1,9 @@
+.idea
+.grunt
+.tmp
+bower_components
+dist
+node_modules
+
+.ftppass
+ftp.json

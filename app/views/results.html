@@ -1,0 +1,20 @@
+<header class="position">
+  <div class="text-center">
+    <a ng-click="back()" class="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <h4>Ergebnisse</h4>
+  </div>
+</header>
+<table class="table table-striped result-table" cellpadding="0" cellspacing="0">
+  <tbody>
+  <tr class="text-center" ng-repeat="result in results" ng-click="details($index)">
+    <td class="text-right">{{result.name}}: </td>
+    <td class="text-left"><strong>{{result.count}}</strong> (Ø{{getAverageCount(result)}})  <small class="grey pull-right" ng-show="result.nuller > 0">{{result.nuller}}</small> </td>
+  </tr>
+</table>
+<div class="text-center">
+  <button ng-click="back()" class="btn btn-primary btn-lg">zurück zum Spiel</button>
+  <br/><br/>
+  <button class="btn btn-default" ng-click="start()">zum Start</button>
+  <br/><br/>
+  <a ng-click="saveResults()">Ergebnisse speichern</a>
+</div>

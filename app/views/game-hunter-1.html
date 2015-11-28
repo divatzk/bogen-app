@@ -1,0 +1,40 @@
+<header>
+  <div class="text-center">
+    <a ng-click="prevPlayer()" class="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <h4>Spieler {{playerIndex + 1}}: <strong>{{activePlayer.name}}</strong></h4>
+    <a ng-click="nextPlayer()" class="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+  </div>
+</header>
+<div class="table-wrapper">
+  <table class="fill game" cellpadding="0" cellspacing="0" ng-model="activePlayer" ng-swipe-left="nextPlayer()" ng-swipe-right="prevPlayer()">
+    <tbody>
+    <tr class="text-center">
+      <td ng-click="select(11, true, 1)" class="light-bg" ng-class="{'active' : selectedIndex==11}"><h3>11</h3></td>
+    </tr>
+    <tr class="text-center">
+      <td ng-click="select(10, true, 1)" ng-class="{'active' : selectedIndex==10}"><h3>10</h3></td>
+    </tr>
+    <tr class="text-center">
+      <td ng-click="select(8, true, 1)" class="light-bg" ng-class="{'active' : selectedIndex==8}"><h3>8</h3></td>
+    </tr>
+    <tr class="text-center">
+      <td ng-click="select(5, true, 1)" ng-class="{'active' : selectedIndex==5}"><h3>5</h3></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<footer>
+  <div class="progress"></div>
+  <div class="text-center">
+    <div class="col-xs-4">
+      <a ng-click="prevTarget()" ng-show="target > 1"><span class="glyphicon glyphicon-minus"></span>&nbsp;&nbsp;Ziel</a>
+    </div>
+    <div class="col-xs-4">
+      <a ng-click="showResults()"><span class="glyphicon glyphicon-info-sign"></span></a>
+      <h4><strong>{{target}}</strong></h4>
+    </div>
+    <div class="col-xs-4">
+      <a ng-click="nextTarget()">Ziel&nbsp;&nbsp<span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+  </div>
+</footer>
