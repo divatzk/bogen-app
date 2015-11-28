@@ -1,12 +1,12 @@
 # Bogen-Zähl-App
 
-#Install Components
+##Install Components
 
 	npm install
 	
 	bower install
 
-#Develop
+##Develop
 
 edit /app/api/config.php
 
@@ -15,7 +15,7 @@ edit /app/api/config.php
 	startphp.bat
 
 
-#Deploy
+##Deploy
 
 edit .ftppass + ftp.json
 
