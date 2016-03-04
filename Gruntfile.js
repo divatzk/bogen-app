@@ -437,10 +437,6 @@ module.exports = function (grunt) {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
 
-    if (target === 'deploy') {
-      return grunt.task.run(['build', 'ftpush']);
-    }
-
     grunt.task.run([
       'clean:server',
       'wiredep',
@@ -483,6 +479,8 @@ module.exports = function (grunt) {
     'htmlmin',
     'manifest'
   ]);
+
+  grunt.registerTask('release', ['build' , 'ftpush']);
 
   grunt.registerTask('default', [
     'newer:jshint',

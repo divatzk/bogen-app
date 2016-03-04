@@ -6,19 +6,21 @@
       <a ng-click="next()" class="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
   </header>
-  <table class="table table-striped result-table" cellpadding="0" cellspacing="0">
-    <tbody>
-    <tr class="text-center" ng-repeat="target in player.targets">
-      <td class="text-right">Ziel {{$index +1}}: </td>
-      <td class="text-left"><strong>{{target.arrow_1 + target.arrow_2 + target.arrow_3}}</strong></td>
-    </tr>
-    <tr class="info">
-      <td colspan="2" class="text-center"><h4><strong>{{result}}</strong></h4></td>
-    </tr>
-  </table>
-  <div class="text-center">
-    <button ng-click="backResults()" class="btn btn-primary btn-lg">zurück zur Ergebnisseite</button>
+  <div class="swipe-container result-table">
+	  <table class="table table-striped " cellpadding="0" cellspacing="0">
+		<tbody>
+		<tr class="text-center" ng-repeat="target in player.targets">
+		  <td class="text-right">Ziel {{$index +1}}: </td>
+		  <td class="text-left"><strong>{{target.arrow_1 + target.arrow_2 + target.arrow_3}}</strong></td>
+		</tr>
+		<tr class="info">
+		  <td colspan="2" class="text-center"><h4><strong>{{result}}</strong></h4></td>
+		</tr>
+	  </table>
+	  <div class="text-center">
+		<button ng-click="backResults()" class="btn btn-primary btn-lg">zurück zur Ergebnisseite</button>
+	  </div>
+	  <br/>
+	  <canvas id="line" class="chart chart-line" data="data" labels="labels" options="options"></canvas>
   </div>
-  <br/>
-  <canvas id="line" class="chart chart-line" data="data" labels="labels" options="options"></canvas>
 </div>

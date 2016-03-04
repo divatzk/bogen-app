@@ -3,7 +3,8 @@ angular.module('bogenApp')
   .controller('ResultsCtrl', function ($scope, $location, localStorageService, PlayerService, GameService) {
 
     $scope.players = PlayerService.getPlayers();
-    $scope.results = PlayerService.sortResults(PlayerService.getResults());
+    $scope.unsortedResults = PlayerService.getResults();
+    $scope.results = PlayerService.sortResults($scope.unsortedResults);
     $scope.gameType = PlayerService.getGameType();
     $scope.uid = PlayerService.getUniqueId();
 
@@ -24,7 +25,7 @@ angular.module('bogenApp')
     };
 
     $scope.getAverageCount = function(result){
-      return Math.round(result.count/result.targets);
+      return (result.count/result.targets).toFixed(2);
     }
 
   });

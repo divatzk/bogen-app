@@ -12,7 +12,7 @@ angular.module('bogenApp')
 
     this.getPlayers = function(){
       return localStorageService.get('players');
-    };
+    }
 
     this.createPlayer = function (name) {
       var player = {
@@ -20,11 +20,11 @@ angular.module('bogenApp')
         targets: [{ arrow_1: 0, arrow_2: 0, arrow_3: 0 }]
       };
       return player;
-    };
+    }
 
     this.getPlayerResult = function(player){
       return getPlayerResult(player);
-    };
+    }
 
     function getPlayerResult(player){
       var count = 0;
@@ -32,7 +32,7 @@ angular.module('bogenApp')
         count = count + counts.arrow_1 + counts.arrow_2 + counts.arrow_3;
       });
       return count;
-    };
+    }
 
     function getEmptyTargets(player){
       var count = 0;
@@ -46,15 +46,18 @@ angular.module('bogenApp')
 
     this.getResults = function(){
       var tmp = [];
+      var index = 0;
       angular.forEach(this.getPlayers(), function (player) {
-        tmp.push({'name': player.name, 'count': getPlayerResult(player), 'nuller': getEmptyTargets(player), 'targets': player.targets.length});
+        tmp.push({'name': player.name, 'count': getPlayerResult(player), 'nuller': getEmptyTargets(player), 'targets': player.targets.length, 'index' : index});
+        index++;
       });
       return tmp;
     };
 
     this.sortResults = function(tmp){
       return tmp.sort(function(a, b){
-        return a.count < b.count;
+        //return a.count < b.count;
+        return b.count - a.count;
       });
     };
 
@@ -93,7 +96,7 @@ angular.module('bogenApp')
       tmp.data = data;
       tmp.labels = labels;
       return tmp;
-    };
+    }
 
     this.generateUniqueId = function() {
       return Math.random().toString(36).slice(-15);

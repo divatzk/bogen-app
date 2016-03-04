@@ -17,50 +17,45 @@ angular.module('bogenApp')
     $swipe.bind($('table.game'), {
       'start': function(coord){
         startX = coord.x;
-        $('table.game').addClass('move');
       },
       'move': function(coord) {
-        if (coord.x > startX + 20){
-          $('table.game').addClass('left');
-        } else if (coord.x < startX - 20) {
-          $('table.game').addClass('right');
-        }
+        $('table.game').css("transform", "translate(" + (startX - coord.x) * -1 + "px,0)");
       },
       'end': function() {
-        $('table.game').removeClass('move left right');
+        $('table.game').css("transform", "");
       },
       'cancel': function(){
-        $('table.game').removeClass('move left right');
+        $('table.game').css("transform", "");
       }
     });
 
-      $scope.select = function(count, clicked, arrow){
-        if (arrow == 1){
-          if ($scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_1 == count && clicked) {
-            $scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_1 = 0;
-            $scope.selectedIndex = 0;
-          } else {
-            $scope.selectedIndex = count;
-            $scope.players[$scope.playerIndex].targets[$scope.target - 1].arrow_1 = $scope.selectedIndex;
-          }
-
-        } else if (arrow == 2) {
-          if ($scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_2 == count && clicked) {
-            $scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_2 = 0;
-            $scope.selectedIndex_2 = 0;
-          } else {
-            $scope.selectedIndex_2 = count;
-            $scope.players[$scope.playerIndex].targets[$scope.target - 1].arrow_2 = $scope.selectedIndex_2;
-          }
+    $scope.select = function(count, clicked, arrow){
+      if (arrow == 1){
+        if ($scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_1 == count && clicked) {
+          $scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_1 = 0;
+          $scope.selectedIndex = 0;
         } else {
-          if ($scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_3 == count && clicked) {
-            $scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_3 = 0;
-            $scope.selectedIndex_3 = 0;
-          } else {
-            $scope.selectedIndex_3 = count;
-            $scope.players[$scope.playerIndex].targets[$scope.target - 1].arrow_3 = $scope.selectedIndex_3;
-          }
+          $scope.selectedIndex = count;
+          $scope.players[$scope.playerIndex].targets[$scope.target - 1].arrow_1 = $scope.selectedIndex;
         }
+
+      } else if (arrow == 2) {
+        if ($scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_2 == count && clicked) {
+          $scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_2 = 0;
+          $scope.selectedIndex_2 = 0;
+        } else {
+          $scope.selectedIndex_2 = count;
+          $scope.players[$scope.playerIndex].targets[$scope.target - 1].arrow_2 = $scope.selectedIndex_2;
+        }
+      } else {
+        if ($scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_3 == count && clicked) {
+          $scope.players[$scope.playerIndex].targets[$scope.target-1].arrow_3 = 0;
+          $scope.selectedIndex_3 = 0;
+        } else {
+          $scope.selectedIndex_3 = count;
+          $scope.players[$scope.playerIndex].targets[$scope.target - 1].arrow_3 = $scope.selectedIndex_3;
+        }
+      }
     };
 
     $scope.setActivePlayer = function(){

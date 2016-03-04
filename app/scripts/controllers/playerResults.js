@@ -1,6 +1,6 @@
 'use strict';
 angular.module('bogenApp')
-  .controller('PlayerResultsCtrl', function ($scope, $location, localStorageService, PlayerService, $routeParams) {
+  .controller('PlayerResultsCtrl', function ($scope, $location, localStorageService, PlayerService, $routeParams, $swipe) {
 
     $scope.players = PlayerService.getPlayers();
     $scope.results = PlayerService.sortResults(PlayerService.getResults());
@@ -12,6 +12,24 @@ angular.module('bogenApp')
     $scope.backResults = function(){
       $location.path('/Results');
     };
+
+    var startX = 0;
+
+    $swipe.bind($('.swipe-container'), {
+      'start': function(coord){
+        startX = coord.x;
+      },
+      'move': function(coord) {
+        $('.swipe-container').css("transform", "translate(" + (startX - coord.x) * -1 + "px,0)");
+      },
+      'end': function() {
+        $('.swipe-container').css("transform", "");
+      },
+      'cancel': function(){
+        $('.swipe-container').css("transform", "");
+      }
+    });
+
 
     $scope.prev = function(){
       var index = $routeParams.index == 0 ? $scope.players.length - 1 : parseInt($routeParams.index) - 1;

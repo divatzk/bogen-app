@@ -45,20 +45,6 @@ body {
 .fill.half {
   height: 50%;
 }
-.fill.game {
-  transition: opacity .8s;
-}
-.fill.game.move {
-  transition: all 1s;
-}
-.fill.game.move.right {
-  opacity: 0;
-  transform: translateX(-300px);
-}
-.fill.game.move.left {
-  opacity: 0;
-  transform: translateX(300px);
-}
 .fill td {
   vertical-align: middle;
 }
@@ -82,7 +68,7 @@ body {
   background: #f8f8f8;
 }
 .table-wrapper {
-  padding: 39px 0;
+  padding: 50px 0;
   height: 100%;
 }
 .trenner {
@@ -103,7 +89,7 @@ header {
 footer a,
 header a {
   display: block;
-  padding: 10px;
+  padding: 15px;
   color: #fff;
 }
 footer a:hover,
@@ -139,7 +125,7 @@ header.position-static {
   position: static;
 }
 header h4 {
-  padding: 10px 40px;
+  padding: 15px 40px;
   margin: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -156,7 +142,7 @@ header .next {
   top: 0;
 }
 header:not(.position-static) + .result-table {
-  margin-top: 39px;
+  margin-top: 50px;
 }
 .result-table td {
   width: 50%;
